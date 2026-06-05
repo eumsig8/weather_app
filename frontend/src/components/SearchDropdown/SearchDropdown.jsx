@@ -111,9 +111,6 @@ export default function SearchDropdown({ onSelect, topCities }) {
                     >
                         <i className="bi bi-geo-alt-fill me-2 text-primary" />
                         <span className="city-name">{city.name}</span>
-                        {city.admin1 && (
-                            <span className="city-region text-muted ms-1">{city.admin1},</span>
-                        )}
                         <span className="city-country ms-1">{city.country}</span>
                     </li>
                 ))}
