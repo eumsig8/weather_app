@@ -4,6 +4,7 @@ import CurrentWeather from './components/CurrentWeather/CurrentWeather';
 import ForecastGrid from './components/ForecastGrid/ForecastGrid';
 import { useTopCities } from './hooks/useTopCities';
 import { fetchWeather } from './api/weather';
+import './App.scss';
 import axios from 'axios';
 
 export default function App() {

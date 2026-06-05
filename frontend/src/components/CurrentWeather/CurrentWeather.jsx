@@ -1,10 +1,14 @@
 import React from "react";
-import {getWeatherInfo, getWindDirection} from "../../utils/codes_weather";
+import {getWeatherInfo, getWindDirection} from "../../utils/weatherCodes";
+import './CurrentWeather.scss';
 
+export default function CurrentWeather({ city, current }) {
+    if (!city || !current) {
+        return null;
+    }
 
-export default function CurrentWeather({ city, weather }) {
-    const info = getWeatherInfo(weather.current.weather_code);
-    const windDir = getWindDirection(weather.current.wind_direction);
+    const info = getWeatherInfo(current.weather_code);
+    const windDir = getWindDirection(current.wind_direction_10m);
 
     const stats = [
         { icon: 'bi-droplet-fill',     label: 'Humidity',       value: `${current.relative_humidity_2m}%` },
@@ -20,6 +24,7 @@ export default function CurrentWeather({ city, weather }) {
                     <i className="bi bi-geo-alt-fill me-1" />
                     {city.name}{city.country ? `, ${city.country}` : ''}
                 </div>
+
                 <div className="cw-main">
                     <i className={`bi ${info.icon} cw-icon`} />
                     <div>
@@ -27,6 +32,7 @@ export default function CurrentWeather({ city, weather }) {
                         <div className="cw-condition">{info.label}</div>
                     </div>
                 </div>
+
                 <div className="cw-stats row g-2 mt-2">
                     {stats.map((s) => (
                         <div key={s.label} className="col-6 col-sm-3">
@@ -40,6 +46,5 @@ export default function CurrentWeather({ city, weather }) {
                 </div>
             </div>
         </div>
-
     );
 }

@@ -1,0 +1,64 @@
+.current-weather {
+    .cw-card {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 1.25rem;
+        padding: 1.75rem 2rem;
+        //backdrop-filter: blur(10px);
+    }
+
+    .cw-location {
+        font-size: 0.9rem;
+        color: #94a3b8;
+        margin-bottom: 1rem;
+    }
+
+    .cw-main {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .cw-icon {
+        font-size: 4rem;
+        color: #fbbf24;
+        line-height: 1;
+    }
+
+    .cw-temp {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1;
+        color: #f1f5f9;
+    }
+
+    .cw-condition {
+        font-size: 1.1rem;
+        color: #94a3b8;
+        margin-top: 0.25rem;
+    }
+
+    .cw-stat-item {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 0.75rem;
+        padding: 0.65rem 0.85rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        font-size: 0.82rem;
+    }
+
+    .cw-stat-label {
+        color: #64748b;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .cw-stat-value {
+        color: #f1f5f9;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+}

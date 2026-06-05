@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const logRoutes = require('./routes/logRoutes');
+const logRoutes = require('./routes/log');
 
 const app = express();
 const PORT = process.env.PORT || 3001;

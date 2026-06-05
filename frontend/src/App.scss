@@ -1,0 +1,66 @@
+// ── Variables ──────────────────────────────────────────────
+$primary:       #3b82f6;
+$primary-dark:  #1d4ed8;
+$bg-gradient-start: #0f172a;
+$bg-gradient-end:   #1e3a5f;
+$card-bg:       rgba(255, 255, 255, 0.08);
+$text-main:     #f1f5f9;
+$text-muted:    #94a3b8;
+$border-radius: 1rem;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, $bg-gradient-start, $bg-gradient-end);
+  color: $text-main;
+  min-height: 100vh;
+}
+
+.app-header {
+  padding: 2.5rem 0 1.5rem;
+  text-align: center;
+
+  .app-title {
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: $text-main;
+    margin-bottom: 0.25rem;
+  }
+
+  .app-subtitle {
+    color: $text-muted;
+    font-size: 0.95rem;
+  }
+}
+
+.top-cities-label {
+  font-size: 0.85rem;
+  color: $text-muted;
+  margin-bottom: 0.5rem;
+}
+
+.app-footer {
+  margin-top: 3rem;
+  color: $text-muted !important;
+  font-size: 0.8rem;
+}
+
+.btn-outline-primary {
+  border-color: $primary;
+  color: $primary;
+
+  &:hover {
+    background-color: $primary;
+    color: #fff;
+  }
+}
+
+.alert-danger {
+  background: rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.4);
+  color: #fca5a5;
+}

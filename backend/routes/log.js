@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/city-selected', (req, res) => {
+router.post('/city-selected', (req, res) => {
     const {city, country, latitude, longitude} = req.body;
 
     if (!city) {
