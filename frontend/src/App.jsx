@@ -1,50 +1,49 @@
-import React from "react";
+import React, { useState } from 'react';
 import SearchDropdown from './components/SearchDropdown/SearchDropdown';
 import CurrentWeather from './components/CurrentWeather/CurrentWeather';
 import ForecastGrid from './components/ForecastGrid/ForecastGrid';
-import {useTopCities} from './hooks/useTopCities';
-import {fetchWeather} from "./api/weather";
-import axios from "axios";
+import { useTopCities } from './hooks/useTopCities';
+import { fetchWeather } from './api/weather';
+import axios from 'axios';
 
 export default function App() {
-    const [selectedCity, setSelectedCity] = useState(null);
-    const [weather, setWeather] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+  const [selectedCity, setSelectedCity] = useState(null);
+  const [weather, setWeather] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-    const { topCities, recordCityView } = useTopCities();
+  const { topCities, recordCityView } = useTopCities();
 
-    const handleCitySelect = async (city) => {
-        setSelectedCity(city);
-        setLoading(true);
-        setError(null);
-        setWeather(null);
-    }
+  const handleCitySelect = async (city) => {
+    setSelectedCity(city);
+    setLoading(true);
+    setError(null);
+    setWeather(null);
 
     try {
-        await axios.post('/api/log/city-selected', {
-            city: city.name,
-            country: city.country,
-            latitude: city.latitude,
-            longitude: city.longitude
-        });
+      await axios.post('/api/log/city-selected', {
+        city: city.name,
+        country: city.country,
+        latitude: city.latitude,
+        longitude: city.longitude,
+      });
     } catch {
-        console.warn('Failed to log city selection.');
+      console.warn('Failed to log city selection to backend');
     }
 
     recordCityView(city);
 
     try {
-        const data = await fetchWeather(city.latitude, city.longitude);
-        setWeather(data);
+      const data = await fetchWeather(city.latitude, city.longitude);
+      setWeather(data);
     } catch (err) {
-        setError('Failed to fetch weather data. Please try again.');
+      setError('Failed to fetch weather data. Please try again.');
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
-};
+  };
 
-return (
+  return (
     <div className="app-wrapper">
       <header className="app-header">
         <div className="container">
@@ -108,4 +107,5 @@ return (
         <small>Powered by Open-Meteo &amp; Open-Meteo Geocoding API</small>
       </footer>
     </div>
-);
+  );
+}

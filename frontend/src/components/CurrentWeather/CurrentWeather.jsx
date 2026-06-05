@@ -1,5 +1,5 @@
 import React from "react";
-import {getWeatherInfo, getWindDirection} from "../../utils/weatherCodes";
+import {getWeatherInfo, getWindDirection} from "../../utils/codes_weather";
 
 
 export default function CurrentWeather({ city, weather }) {
