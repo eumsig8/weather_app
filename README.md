@@ -41,7 +41,7 @@ The application allows users to search for cities and view current weather condi
 ### Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone git clone https://github.com/eumsig8/weather_app.git
 cd weather-app
 ```
 
@@ -90,6 +90,18 @@ POST /api/log/city-selected
 * Current weather conditions
 * 5-day weather forecast
 * Backend logging of user actions
+
+## Tests
+
+Basic unit tests were added for weather utility functions.
+
+To run tests:
+
+```bash
+cd frontend
+npm test
+```
+
 
 ## Author
 
